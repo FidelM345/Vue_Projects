@@ -1,0 +1,111 @@
+                <!DOCTYPE html>
+                <html lang="en">
+
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+                    <link rel="stylesheet" href="style.css">
+                    <title>Document</title>
+                </head>
+
+                <body>
+
+                    <div id="vue-app">
+
+                        <h1>{{name}}</h1>
+                        <h2>{{greet()}}</h2>
+                        <h3><a v-bind:href="website"> The vue website</a></h3>
+                        <div><input type="text" :value="student"></div>
+                        <p v-html="linktag"></p>
+
+                        <hr>
+                        <h1>Events</h1>
+                        <p>My Age is {{age}}</p>
+
+                        <button v-on:click="age++">Add a year</button>
+                        <button v-on:click="subtract">Subtract two years</button>
+
+                        <hr>
+                        <div><input type="text" v-model="f_name" placeholder="Enter name"></div>
+                        <h1></h1>
+                        
+                        <div> <input type="text" v-model="f_age" placeholder="Enter age"></div>
+                        <h2>My Name is {{f_name}}</h2>
+                        <h2>My Age is {{f_age}}</h2>
+                        <hr>
+                        <button v-on:click="a++">Add To A</button>
+                        <button  v-on:click="b++">Add To B</button>
+
+                        <h3>A - {{a}}</h3>
+                        <h3>B - {{b}}</h3>
+
+                        <h3>Age + A ={{addAgeToA}}</h3>
+                        <h3>Age + A ={{addAgeToB}}</h3>
+
+                        <hr>
+                        <h2>Dynamic css</h2>
+                        <!-- Code injected by live-server -->
+
+                        <div v-on:click="{available=!available}" v-bind:class="{available:available}">
+                            <span>THeBEast Man</span>
+                        </div>
+
+                        <button v-on:click="{nearby=!nearby}">Toggle Nearby</button>
+                        <button  v-on:click="{available=!available}">Toggle Available</button>
+
+                        <div v-bind:class="compClasses">
+                            <span>Am Here/Not Here</span>
+                        </div>
+
+                        <hr>
+                        <h2>using conditionals in vue</h2>
+
+                        <p v-if="success"> The data has been successfully posted</p>
+                        <p v-if="error"> There is Error in your data</p>
+
+                        <button v-on:click="{success=!success}">Toggle Success</button>
+                        <button  v-on:click="{error=!error}">Toggle Error</button>
+
+                        <!-- v-show and v-if perform the same function the difference is
+                        v-if removes the html element completely from the page -->
+
+                        <hr>
+                        <h2>Dealing wiith for loops</h2>
+
+                        <h3>Top 4 clubs in England are:</h3>
+                        <ul>
+                            <li v-for="club in clubs">{{club}}</li>
+                        </ul>
+
+                        <h3>Current EPL Table:</h3>
+                        <ul>
+                            <li v-for="entry in table">{{entry.name}} - {{entry.points}}pts</li>
+                        </ul>
+
+                        <template v-for="entry in table">
+
+                            <p v-for="(val,key) in entry" >
+                                {{key}} - {{val}}
+                            </p>
+
+
+                        </template >
+
+
+
+
+                       
+                    </div>
+
+                  
+                    
+
+
+
+                    <script src="app.js"></script>
+                </body>
+
+
+                </html>
