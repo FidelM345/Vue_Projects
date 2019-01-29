@@ -1,6 +1,6 @@
 <template>
     <div id="add-blog">
-        <h2>Add a New Blog Post</h2>
+        <h2>Denno the Kwack</h2>
         <form v-if="!submitted">
             <label>Blog Title:</label>
             <input type="text" v-model.lazy="blog.title" required />
@@ -70,12 +70,7 @@ export default {
 
             }else{
                 
-                this.$http.post('https://jsonplaceholder.typicode.com/posts',{
-                title:this.blog.title,
-                body:this.blog.content,
-                userId:1
-
-            }).then(function(data){
+                this.$http.post('https://myprojo-be85d.firebaseio.com/post.json',this.blog).then(function(data){
                 console.log(data)
                 this.submitted=true
             })
